@@ -1,0 +1,199 @@
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
+
+/*RESETANDO OS ESTILOS PADRÕES*/
+*{
+    font-family: 'Inter', sans-serif;
+    box-sizing: border-box;
+    font-size: 1em;
+    font-weight: 500;
+    margin: 0;
+	padding: 0;
+}
+
+/*SELETORES GERAIS*/
+img{
+    display: block;
+    margin: 0px auto;
+}
+
+body{
+    height: 100vh;
+    min-height: 610px;
+    position: relative;
+}
+
+body::after{
+    content: '';
+    display: block;
+    position: absolute;
+    background: url('images/pattern-curve.svg') no-repeat center right;
+    background-size: 100%;
+    width: 300px;
+    height: 75px;
+    bottom: 0px;
+    left: 0px;
+}
+
+/*ARRUMANDO O MAIN*/
+main{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 0px auto;
+}
+
+/*ARRUMANDO IMAGEM DA SECAO PESSOA*/
+.imagens{
+    background: url('images/pattern-bg.svg') no-repeat top center;
+    background-size: 300px 320px;
+    padding: 30px 0px;
+    margin-bottom: 10px;
+    overflow-x: hidden;
+    position: relative; 
+    z-index: 0; 
+}
+
+.slide{
+    display: flex;
+    width: 300px;
+}
+
+.slide > img{
+    width: 260px;
+    border-radius: 10px;
+    margin: 0px 15px;
+}
+
+.seta{
+    background-color: white;
+    border-radius: 50px;
+    position: absolute;
+    bottom: 15px;
+    left: 100px;
+    
+}
+
+.seta button{
+    border: none;
+    outline: none;
+    background: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+/*ARRUMANDO TEXTO DA SECAO PESSOA*/
+.textos blockquote{
+    display: none;
+    background: url('images/pattern-quotes.svg') no-repeat top center;
+    background-size: 60px;
+    padding-top: 30px;
+    color: hsl(240, 38%, 20%);
+    text-align: center;
+}
+
+.textos blockquote.ativo{
+    display: block;
+    animation: animaBlockquote .3s forwards;
+}
+
+@keyframes animaBlockquote{
+    from{
+        opacity: 0;
+        transform: translate3d(0px, -30px, 0px);
+    }
+    to{
+        opacity: 1;
+        transform: translate3d(0px, 0px, 0px);
+    }
+}
+
+.textos blockquote p{
+    margin-bottom: 15px;
+}
+
+.textos blockquote cite{
+    font-weight: 700;
+    font-size: 14px;
+    font-style: normal;
+}
+
+.textos blockquote span{
+    display: block;
+    font-size: inherit;
+    color: hsl(240, 18%, 77%);
+}
+
+/*MEDIA QUERIES*/
+@media(min-width: 767px){
+    /*SELETORES GERAIS*/
+    body{
+        min-height: 490px;
+    }
+
+    body::after{
+        width: 400px;
+        height: 100px;
+        bottom: 0px;
+        left: 0px;
+    }
+
+    /*ARRUMANDO O MAIN*/
+    main{
+        width: 90%;
+        max-width: 1000px;
+        flex-direction: row-reverse;
+        align-items: center;
+    }
+
+    /*ARRUMANDO IMAGEM*/
+    .imagens{
+        flex: 1;
+        margin-bottom: 0px;
+        background-size: 100% 96%;
+        padding: 40px 0px;
+    }
+    
+    .slide{
+        display: flex;
+        width: 100%;
+        cursor: grabbing;
+    }
+    
+    .slide > img{
+        width: 90%;
+        margin: 0px 20px;
+    }
+     
+    .seta button{
+        padding: 15px;
+    }
+    
+
+    /*ARRUMANDO TEXTO*/
+    .textos{
+        flex: 1;
+    }
+
+    .textos blockquote{
+        align-self: center;
+        text-align: left;
+        background-position-x: 60px;
+        position: relative;
+        right: -66px;
+    }
+
+    .textos blockquote p{
+        font-size: 25px;
+        position: relative;
+        z-index: 10;
+    }
+    
+    .textos blockquote cite{
+        font-size: 16px;
+    }
+
+    .textos blockquote span{
+        display: initial;
+    }
+}
